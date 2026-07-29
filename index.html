@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Tour Go</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fa;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(8px);
+z-index:999;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:#fff;
+}
+
+.logo span{
+color:#00d4ff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:.3s;
+font-weight:500;
+}
+
+nav a:hover{
+color:#00d4ff;
+}
+
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80") center center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:22px;
+margin-bottom:35px;
+}
+
+.btn{
+background:#00AEEF;
+padding:15px 40px;
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-size:18px;
+transition:.4s;
+display:inline-block;
+}
+
+.btn:hover{
+background:#008ac2;
+transform:scale(1.05);
+}
+
+section{
+padding:90px 10%;
+}
+
+.titulo{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+color:#004E92;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card h3{
+color:#004E92;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:15px;
+color:#555;
+}
+
+.precio{
+font-size:28px;
+font-weight:bold;
+color:#00AEEF;
+margin-bottom:15px;
+}
+
+.servicios{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.box i{
+font-size:50px;
+color:#00AEEF;
+margin-bottom:15px;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.galeria img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+transition:.4s;
+cursor:pointer;
+}
+
+.galeria img:hover{
+transform:scale(1.08);
+}
+
+.contacto{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+}
+
+input,textarea{
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+border:none;
+box-shadow:0 0 8px rgba(0,0,0,.15);
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+button{
+padding:15px;
+background:#00AEEF;
+border:none;
+color:white;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#008ac2;
+}
+
+footer{
+background:#00335f;
+color:white;
+padding:35px;
+text-align:center;
+margin-top:50px;
+}
+
+.redes i{
+font-size:28px;
+margin:15px;
+cursor:pointer;
+transition:.3s;
+}
+
+.redes i:hover{
+color:#00AEEF;
+}
+
+.whatsapp{
+position:fixed;
+right:25px;
+bottom:25px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
+color:white;
+text-decoration:none;
+box-shadow:0 8px 25px rgba(0,0,0,.3);
+animation:flotar 2s infinite;
+}
+
+@keyframes flotar{
+50%{
+transform:translateY(-8px);
+}
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:38px;
+}
+
+.contacto{
+grid-template-columns:1fr;
+}
+
+header{
+flex-direction:column;
+}
+
+nav{
+margin-top:15px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+🌎 Global <span>Tour Go</span>
+</div>
+
+<nav>
+
+<a href="#">Inicio</a>
+<a href="#tours">Tours</a>
+<a href="#servicios">Servicios</a>
+<a href="#galeria">Galería</a>
+<a href="#contacto">Contacto</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Explora Ecuador con Nosotros</h1>
+
+<p>Viajes inolvidables • Seguridad • Diversión • Los mejores precios</p>
+
+<a href="#tours" class="btn">Ver Tours</a>
+
+</div>
+
+</section>
+
+<section id="tours">
+
+<h2 class="titulo">Nuestros Tours</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
+<h3>🐋 Pase de las Ballenas</h3>
+
+<p>Disfruta del mejor avistamiento de ballenas en la costa ecuatoriana.</p>
+
+<div class="precio">$35</div>
+
+<a class="btn">Reservar</a>
+
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
+<h3>🏝 Punta de los Frailes</h3>
+
+<p>Una de las playas más hermosas del Ecuador.</p>
+
+<div class="precio">$30</div>
+
+<a class="btn">Reservar</a>
+
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
+<h3>💦 Baños de Agua Santa</h3>
+
+<p>Cascadas, aventura y naturaleza en un solo lugar.</p>
+
+<div class="precio">$85</div>
+
+<a class="btn">Reservar</a>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="servicios">
+
+<h2 class="titulo">¿Por qué elegirnos?</h2>
+
+<div class="servicios">
+
+<div class="box">
+<i class="fa-solid fa-bus"></i>
+<h3>Transporte</h3>
+<p>Vehículos cómodos y seguros.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-user-group"></i>
+<h3>Guías</h3>
+<p>Personal capacitado.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-shield-heart"></i>
+<h3>Seguridad</h3>
+<p>Viaja tranquilo con nosotros.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-headset"></i>
+<h3>Soporte</h3>
+<p>Atención antes y durante el viaje.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="galeria">
+
+<h2 class="titulo">Galería</h2>
+
+<div class="galeria">
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
+</section>
+
+<section id="contacto">
+
+<h2 class="titulo">Contáctanos</h2>
+
+<div class="contacto">
+
+<div>
+
+<h2>Global Tour Go</h2>
+
+<br>
+
+<p>📍 Pedernales - Ecuador</p>
+
+<br>
+
+<p>📞 +593 99 999 9999</p>
+
+<br>
+
+<p>📧 globaltourgo@gmail.com</p>
+
+</div>
+
+<form>
+
+<input type="text" placeholder="Nombre">
+
+<input type="email" placeholder="Correo">
+
+<input type="text" placeholder="Teléfono">
+
+<textarea placeholder="Mensaje"></textarea>
+
+<button>Enviar Mensaje</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>Global Tour Go</h2>
+
+<p>¡Descubre Ecuador con nosotros!</p>
+
+<div class="redes">
+
+<i class="fab fa-facebook"></i>
+
+<i class="fab fa-instagram"></i>
+
+<i class="fab fa-tiktok"></i>
+
+<i class="fab fa-whatsapp"></i>
+
+</div>
+
+<p>© 2026 Global Tour Go - Todos los derechos reservados.</p>
+
+</footer>
+
+<a href="https://wa.me/593999999999" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+
+cards.forEach(card=>{
+
+const top=card.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+card.style.opacity=1;
+card.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity=0;
+card.style.transform="translateY(50px)";
+card.style.transition=".8s";
+
+});
+
+</script>
+
+</body>
+</html>
